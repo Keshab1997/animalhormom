@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>প্রাণী হরমোন ও অন্তঃক্ষরা গ্রন্থি - কুইজ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+        header h1 {
+            font-size: 2.8em;
+            color: #1e3c72;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #555;
+            font-style: italic;
+        }
+        .quiz-section {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .quiz-section h2 {
+            font-size: 2em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        .question.active {
+            display: block;
+        }
+        .question p {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .options label {
+            display: block;
+            font-size: 1em;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .options input[type="radio"] {
+            margin-right: 10px;
+            display: none;
+        }
+        .options label:hover {
+            background: #e9ecef;
+        }
+        .options input[type="radio"]:checked + span.correct {
+            background: #28a745;
+            color: #fff;
+            font-weight: bold;
+        }
+        .options input[type="radio"]:checked + span.incorrect {
+            background: #dc3545;
+            color: #fff;
+            font-weight: bold;
+        }
+        .answer {
+            display: none;
+            font-size: 1em;
+            color: #2a5298;
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 10px;
+            background: #e9f7ef;
+            border-radius: 5px;
+        }
+        .answer.active {
+            display: block;
+        }
+        .question-selector {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .question-selector select {
+            padding: 10px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+            cursor: pointer;
+        }
+        .nav-buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .nav-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 10px;
+            background: linear-gradient(45deg, #007bff, #00c4ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .nav-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #fff;
+            background: #1e3c72;
+            margin-top: 30px;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .container {
+                padding: 10px;
+            }
+            .quiz-section {
+                padding: 20px;
+            }
+            .nav-btn {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const questionSelector = document.getElementById('question-count');
+            const questions = document.querySelectorAll('.question');
+
+            questionSelector.addEventListener('change', () => {
+                const selectedCount = parseInt(questionSelector.value);
+                questions.forEach((question, index) => {
+                    if (index < selectedCount) {
+                        question.classList.add('active');
+                    } else {
+                        question.classList.remove('active');
+                    }
+                });
+            });
+
+            questions.forEach(question => {
+                const radios = question.querySelectorAll('input[type="radio"]');
+                const answerDiv = question.querySelector('.answer');
+                radios.forEach(radio => {
+                    radio.addEventListener('change', () => {
+                        answerDiv.classList.add('active');
+                        radios.forEach(r => {
+                            r.disabled = true; // Disable all options after selection
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>প্রাণী হরমোন ও অন্তঃক্ষরা গ্রন্থি - কুইজ</h1>
+            <p>৪০টি নতুন MCQ সহ আপনার জ্ঞান পরীক্ষা করুন</p>
+        </header>
+
+        <section class="quiz-section">
+            <h2>কুইজ: প্রাণী হরমোন ও অন্তঃক্ষরা গ্রন্থি</h2>
+            <div class="question-selector">
+                <label for="question-count">প্রশ্নের সংখ্যা নির্বাচন করুন: </label>
+                <select id="question-count">
+                    <option value="5">৫টি প্রশ্ন</option>
+                    <option value="10">১০টি প্রশ্ন</option>
+                    <option value="40" selected>৪০টি প্রশ্ন</option>
+                </select>
+            </div>
+            <div class="question active">
+                <p>১. কোন হরমোন প্রাণীর শরীরে ক্যালসিয়ামের মাত্রা নিয়ন্ত্রণ করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"><span class="incorrect">a) থাইরক্সিন</span></label>
+                    <label><input type="radio" name="q1" value="b"><span class="correct">b) প্যারাথরমোন</span></label>
+                    <label><input type="radio" name="q1" value="c"><span class="incorrect">c) ইনসুলিন</span></label>
+                    <label><input type="radio" name="q1" value="d"><span class="incorrect">d) অ্যাড্রিনালিন</span></label>
+                </div>
+                <p class="answer">উত্তর: b) প্যারাথরমোন</p>
+            </div>
+            <div class="question active">
+                <p>২. কোন গ্রন্থি থেকে মেলাটোনিন হরমোন নিঃসৃত হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"><span class="incorrect">a) পিটুইটারি</span></label>
+                    <label><input type="radio" name="q2" value="b"><span class="correct">b) পাইনিয়াল</span></label>
+                    <label><input type="radio" name="q2" value="c"><span class="incorrect">c) থাইরয়েড</span></label>
+                    <label><input type="radio" name="q2" value="d"><span class="incorrect">d) অ্যাডরিনাল</span></label>
+                </div>
+                <p class="answer">উত্তর: b) পাইনিয়াল</p>
+            </div>
+            <div class="question active">
+                <p>৩. কোন হরমোনের অভাবে শরীরে গ্লুকোজের মাত্রা অতিরিক্ত বেড়ে যায়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"><span class="incorrect">a) গ্লুকাগন</span></label>
+                    <label><input type="radio" name="q3" value="b"><span class="correct">b) ইনসুলিন</span></label>
+                    <label><input type="radio" name="q3" value="c"><span class="incorrect">c) কর্টিসল</span></label>
+                    <label><input type="radio" name="q3" value="d"><span class="incorrect">d) অক্সিটোসিন</span></label>
+                </div>
+                <p class="answer">উত্তর: b) ইনসুলিন</p>
+            </div>
+            <div class="question active">
+                <p>৪. থাইরয়েড গ্রন্থির কোন হরমোন শরীরের তাপমাত্রা নিয়ন্ত্রণে সাহায্য করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"><span class="incorrect">a) ক্যালসিটোনিন</span></label>
+                    <label><input type="radio" name="q4" value="b"><span class="correct">b) থাইরক্সিন</span></label>
+                    <label><input type="radio" name="q4" value="c"><span class="incorrect">c) প্যারাথরমোন</span></label>
+                    <label><input type="radio" name="q4" value="d"><span class="incorrect">d) অ্যালডোস্টেরন</span></label>
+                </div>
+                <p class="answer">উত্তর: b) থাইরক্সিন</p>
+            </div>
+            <div class="question active">
+                <p>৫. কোন হরমোন প্রসবের সময় জরায়ুর সংকোচন বাড়ায়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"><span class="incorrect">a) প্রোজেস্টেরন</span></label>
+                    <label><input type="radio" name="q5" value="b"><span class="correct">b) অক্সিটোসিন</span></label>
+                    <label><input type="radio" name="q5" value="c"><span class="incorrect">c) ইস্ট্রোজেন</span></label>
+                    <label><input type="radio" name="q5" value="d"><span class="incorrect">d) FSH</span></label>
+                </div>
+                <p class="answer">উত্তর: b) অক্সিটোসিন</p>
+            </div>
+            <div class="question">
+                <p>৬. অ্যাডরিনাল গ্রন্থির কোন অংশ থেকে অ্যাড্রিনালিন নিঃসৃত হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="a"><span class="incorrect">a) কর্টেক্স</span></label>
+                    <label><input type="radio" name="q6" value="b"><span class="correct">b) মেডুলা</span></label>
+                    <label><input type="radio" name="q6" value="c"><span class="incorrect">c) প্যারেনকাইমা</span></label>
+                    <label><input type="radio" name="q6" value="d"><span class="incorrect">d) ক্যাপসুল</span></label>
+                </div>
+                <p class="answer">উত্তর: b) মেডুলা</p>
+            </div>
+            <div class="question">
+                <p>৭. কোন হরমোনের অতিরিক্ত নিঃসরণে হাড়ের অস্বাভাবিক বৃদ্ধি হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="a"><span class="incorrect">a) ACTH</span></label>
+                    <label><input type="radio" name="q7" value="b"><span class="correct">b) STH</span></label>
+                    <label><input type="radio" name="q7" value="c"><span class="incorrect">c) TSH</span></label>
+                    <label><input type="radio" name="q7" value="d"><span class="incorrect">d) LH</span></label>
+                </div>
+                <p class="answer">উত্তর: b) STH</p>
+            </div>
+            <div class="question">
+                <p>৮. কোন গ্রন্থি “মাস্টার গ্রন্থি” হিসেবে পরিচিত?</p>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="a"><span class="incorrect">a) হাইপোথ্যালামাস</span></label>
+                    <label><input type="radio" name="q8" value="b"><span class="correct">b) পিটুইটারি</span></label>
+                    <label><input type="radio" name="q8" value="c"><span class="incorrect">c) থাইরয়েড</span></label>
+                    <label><input type="radio" name="q8" value="d"><span class="incorrect">d) অগ্ন্যাশয়</span></label>
+                </div>
+                <p class="answer">উত্তর: b) পিটুইটারি</p>
+            </div>
+            <div class="question">
+                <p>৯. কোন হরমোন রক্তচাপ নিয়ন্ত্রণে সাহায্য করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="a"><span class="correct">a) অ্যালডোস্টেরন</span></label>
+                    <label><input type="radio" name="q9" value="b"><span class="incorrect">b) গ্লুকাগন</span></label>
+                    <label><input type="radio" name="q9" value="c"><span class="incorrect">c) থাইরক্সিন</span></label>
+                    <label><input type="radio" name="q9" value="d"><span class="incorrect">d) MSH</span></label>
+                </div>
+                <p class="answer">উত্তর: a) অ্যালডোস্টেরন</p>
+            </div>
+            <div class="question">
+                <p>১০. কোন হরমোনের অভাবে শিশুদের মানসিক বিকাশ বাধাগ্রস্ত হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="a"><span class="incorrect">a) ইনসুলিন</span></label>
+                    <label><input type="radio" name="q10" value="b"><span class="correct">b) থাইরক্সিন</span></label>
+                    <label><input type="radio" name="q10" value="c"><span class="incorrect">c) অ্যাড্রিনালিন</span></label>
+                    <label><input type="radio" name="q10" value="d"><span class="incorrect">d) প্রোজেস্টেরন</span></label>
+                </div>
+                <p class="answer">উত্তর: b) থাইরক্সিন</p>
+            </div>
+            <div class="question">
+                <p>১১. কোন গ্রন্থি মিশ্র গ্রন্থি হিসেবে কাজ করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q11" value="a"><span class="incorrect">a) থাইরয়েড</span></label>
+                    <label><input type="radio" name="q11" value="b"><span class="correct">b) অগ্ন্যাশয়</span></label>
+                    <label><input type="radio" name="q11" value="c"><span class="incorrect">c) পিটুইটারি</span></label>
+                    <label><input type="radio" name="q11" value="d"><span class="incorrect">d) প্যারাথাইরয়েড</span></label>
+                </div>
+                <p class="answer">উত্তর: b) অগ্ন্যাশয়</p>
+            </div>
+            <div class="question">
+                <p>১২. কোন হরমোন ত্বকের রঙ নিয়ন্ত্রণে সাহায্য করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q12" value="a"><span class="correct">a) MSH</span></label>
+                    <label><input type="radio" name="q12" value="b"><span class="incorrect">b) ACTH</span></label>
+                    <label><input type="radio" name="q12" value="c"><span class="incorrect">c) FSH</span></label>
+                    <label><input type="radio" name="q12" value="d"><span class="incorrect">d) TSH</span></label>
+                </div>
+                <p class="answer">উত্তর: a) MSH</p>
+            </div>
+            <div class="question">
+                <p>১৩. কোন হরমোনের অভাবে অতিরিক্ত প্রস্রাব নিঃসরণ হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q13" value="a"><span class="correct">a) ADH</span></label>
+                    <label><input type="radio" name="q13" value="b"><span class="incorrect">b) অক্সিটোসিন</span></label>
+                    <label><input type="radio" name="q13" value="c"><span class="incorrect">c) কর্টিসল</span></label>
+                    <label><input type="radio" name="q13" value="d"><span class="incorrect">d) ইস্ট্রোজেন</span></label>
+                </div>
+                <p class="answer">উত্তর: a) ADH</p>
+            </div>
+            <div class="question">
+                <p>১৪. কোন হরমোন পুরুষদের শুক্রাণু উৎপাদনে সাহায্য করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q14" value="a"><span class="correct">a) টেস্টোস্টেরন</span></label>
+                    <label><input type="radio" name="q14" value="b"><span class="incorrect">b) প্রোজেস্টেরন</span></label>
+                    <label><input type="radio" name="q14" value="c"><span class="incorrect">c) ইস্ট্রোজেন</span></label>
+                    <label><input type="radio" name="q14" value="d"><span class="incorrect">d) অ্যালডোস্টেরন</span></label>
+                </div>
+                <p class="answer">উত্তর: a) টেস্টোস্টেরন</p>
+            </div>
+            <div class="question">
+                <p>১৫. কোন গ্রন্থি থেকে গ্লুকাগন নিঃসৃত হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q15" value="a"><span class="incorrect">a) অ্যাডরিনাল</span></label>
+                    <label><input type="radio" name="q15" value="b"><span class="correct">b) অগ্ন্যাশয়</span></label>
+                    <label><input type="radio" name="q15" value="c"><span class="incorrect">c) পিটুইটারি</span></label>
+                    <label><input type="radio" name="q15" value="d"><span class="incorrect">d) থাইরয়েড</span></label>
+                </div>
+                <p class="answer">উত্তর: b) অগ্ন্যাশয়</p>
+            </div>
+            <div class="question">
+                <p>১৬. কোন হরমোন স্ট্রেস মোকাবিলায় গুরুত্বপূর্ণ ভূমিকা পালন করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q16" value="a"><span class="correct">a) কর্টিসল</span></label>
+                    <label><input type="radio" name="q16" value="b"><span class="incorrect">b) ইনসুলিন</span></label>
+                    <label><input type="radio" name="q16" value="c"><span class="incorrect">c) থাইরক্সিন</span></label>
+                    <label><input type="radio" name="q16" value="d"><span class="incorrect">d) LH</span></label>
+                </div>
+                <p class="answer">উত্তর: a) কর্টিসল</p>
+            </div>
+            <div class="question">
+                <p>১৭. কোন হরমোনের অতিরিক্ত নিঃসরণে গলগণ্ড রোগ হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q17" value="a"><span class="incorrect">a) থাইরক্সিন</span></label>
+                    <label><input type="radio" name="q17" value="b"><span class="incorrect">b) ক্যালসিটোনিন</span></label>
+                    <label><input type="radio" name="q17" value="c"><span class="incorrect">c) প্যারাথরমোন</span></label>
+                    <label><input type="radio" name="q17" value="d"><span class="correct">d) কোনোটিই নয়</span></label>
+                </div>
+                <p class="answer">উত্তর: d) কোনোটিই নয়</p>
+            </div>
+            <div class="question">
+                <p>১৮. কোন গ্রন্থি থেকে ক্যালসিটোনিন নিঃসৃত হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q18" value="a"><span class="incorrect">a) প্যারাথাইরয়েড</span></label>
+                    <label><input type="radio" name="q18" value="b"><span class="correct">b) থাইরয়েড</span></label>
+                    <label><input type="radio" name="q18" value="c"><span class="incorrect">c) অ্যাডরিনাল</span></label>
+                    <label><input type="radio" name="q18" value="d"><span class="incorrect">d) পিটুইটারি</span></label>
+                </div>
+                <p class="answer">উত্তর: b) থাইরয়েড</p>
+            </div>
+            <div class="question">
+                <p>১৯. কোন হরমোন নারীদের ঋতুচক্র নিয়ন্ত্রণে সাহায্য করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q19" value="a"><span class="correct">a) ইস্ট্রোজেন</span></label>
+                    <label><input type="radio" name="q19" value="b"><span class="incorrect">b) টেস্টোস্টেরন</span></label>
+                    <label><input type="radio" name="q19" value="c"><span class="incorrect">c) অ্যাড্রিনালিন</span></label>
+                    <label><input type="radio" name="q19" value="d"><span class="incorrect">d) গ্লুকাগন</span></label>
+                </div>
+                <p class="answer">উত্তর: a) ইস্ট্রোজেন</p>
+            </div>
+            <div class="question">
+                <p>২০. কোন গ্রন্থি পিটুইটারিকে নিয়ন্ত্রণ করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q20" value="a"><span class="incorrect">a) থাইমাস</span></label>
+                    <label><input type="radio" name="q20" value="b"><span class="correct">b) হাইপোথ্যালামাস</span></label>
+                    <label><input type="radio" name="q20" value="c"><span class="incorrect">c) অগ্ন্যাশয়</span></label>
+                    <label><input type="radio" name="q20" value="d"><span class="incorrect">d) অ্যাডরিনাল</span></label>
+                </div>
+                <p class="answer">উত্তর: b) হাইপোথ্যালামাস</p>
+            </div>
+            <div class="question">
+                <p>২১. কোন হরমোনের অভাবে হাইপোগ্লাইসেমিয়া হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q21" value="a"><span class="incorrect">a) ইনসুলিন</span></label>
+                    <label><input type="radio" name="q21" value="b"><span class="correct">b) গ্লুকাগন</span></label>
+                    <label><input type="radio" name="q21" value="c"><span class="incorrect">c) কর্টিসল</span></label>
+                    <label><input type="radio" name="q21" value="d"><span class="incorrect">d) অ্যাড্রিনালিন</span></label>
+                </div>
+                <p class="answer">উত্তর: b) গ্লুকাগন</p>
+            </div>
+            <div class="question">
+                <p>২২. কোন হরমোন প্রাণীর ইমিউন সিস্টেমের বিকাশে সাহায্য করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q22" value="a"><span class="correct">a) থাইমোসিন</span></label>
+                    <label><input type="radio" name="q22" value="b"><span class="incorrect">b) থাইরক্সিন</span></label>
+                    <label><input type="radio" name="q22" value="c"><span class="incorrect">c) অক্সিটোসিন</span></label>
+                    <label><input type="radio" name="q22" value="d"><span class="incorrect">d) MSH</span></label>
+                </div>
+                <p class="answer">উত্তর: a) থাইমোসিন</p>
+            </div>
+            <div class="question">
+                <p>২৩. কোন গ্রন্থি থেকে প্রোল্যাকটিন হরমোন নিঃসৃত হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q23" value="a"><span class="correct">a) পিটুইটারি</span></label>
+                    <label><input type="radio" name="q23" value="b"><span class="incorrect">b) অ্যাডরিনাল</span></label>
+                    <label><input type="radio" name="q23" value="c"><span class="incorrect">c) অগ্ন্যাশয়</span></label>
+                    <label><input type="radio" name="q23" value="d"><span class="incorrect">d) ডিম্বাশয়</span></label>
+                </div>
+                <p class="answer">উত্তর: a) পিটুইটারি</p>
+            </div>
+            <div class="question">
+                <p>২৪. কোন হরমোন গর্ভধারণে সাহায্য করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q24" value="a"><span class="correct">a) প্রোজেস্টেরন</span></label>
+                    <label><input type="radio" name="q24" value="b"><span class="incorrect">b) টেস্টোস্টেরন</span></label>
+                    <label><input type="radio" name="q24" value="c"><span class="incorrect">c) ACTH</span></label>
+                    <label><input type="radio" name="q24" value="d"><span class="incorrect">d) ADH</span></label>
+                </div>
+                <p class="answer">উত্তর: a) প্রোজেস্টেরন</p>
+            </div>
+            <div class="question">
+                <p>২৫. কোন হরমোনের অতিরিক্ত নিঃসরণে কুশিং সিনড্রোম হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q25" value="a"><span class="incorrect">a) ইনসুলিন</span></label>
+                    <label><input type="radio" name="q25" value="b"><span class="correct">b) কর্টিসল</span></label>
+                    <label><input type="radio" name="q25" value="c"><span class="incorrect">c) থাইরক্সিন</span></label>
+                    <label><input type="radio" name="q25" value="d"><span class="incorrect">d) অক্সিটোসিন</span></label>
+                </div>
+                <p class="answer">উত্তর: b) কর্টিসল</p>
+            </div>
+            <div class="question">
+                <p>২৬. কোন গ্রন্থি থেকে নরঅ্যাড্রিনালিন নিঃসৃত হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q26" value="a"><span class="incorrect">a) অগ্ন্যাশয়</span></label>
+                    <label><input type="radio" name="q26" value="b"><span class="correct">b) অ্যাডরিনাল</span></label>
+                    <label><input type="radio" name="q26" value="c"><span class="incorrect">c) পিটুইটারি</span></label>
+                    <label><input type="radio" name="q26" value="d"><span class="incorrect">d) থাইরয়েড</span></label>
+                </div>
+                <p class="answer">উত্তর: b) অ্যাডরিনাল</p>
+            </div>
+            <div class="question">
+                <p>২৭. কোন হরমোন শরীরের লবণ-জল ভারসাম্য নিয়ন্ত্রণ করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q27" value="a"><span class="correct">a) অ্যালডোস্টেরন</span></label>
+                    <label><input type="radio" name="q27" value="b"><span class="incorrect">b) গ্লুকাগন</span></label>
+                    <label><input type="radio" name="q27" value="c"><span class="incorrect">c) ইস্ট্রোজেন</span></label>
+                    <label><input type="radio" name="q27" value="d"><span class="incorrect">d) FSH</span></label>
+                </div>
+                <p class="answer">উত্তর: a) অ্যালডোস্টেরন</p>
+            </div>
+            <div class="question">
+                <p>২৮. কোন হরমোনের অভাবে অ্যাডিসন রোগ হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q28" value="a"><span class="correct">a) কর্টিসল</span></label>
+                    <label><input type="radio" name="q28" value="b"><span class="incorrect">b) ইনসুলিন</span></label>
+                    <label><input type="radio" name="q28" value="c"><span class="incorrect">c) থাইরক্সিন</span></label>
+                    <label><input type="radio" name="q28" value="d"><span class="incorrect">d) অক্সিটোসিন</span></label>
+                </div>
+                <p class="answer">উত্তর: a) কর্টিসল</p>
+            </div>
+            <div class="question">
+                <p>২৯. কোন গ্রন্থি থেকে FSH নিঃসৃত হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q29" value="a"><span class="incorrect">a) ডিম্বাশয়</span></label>
+                    <label><input type="radio" name="q29" value="b"><span class="correct">b) পিটুইটারি</span></label>
+                    <label><input type="radio" name="q29" value="c"><span class="incorrect">c) অ্যাডরিনাল</span></label>
+                    <label><input type="radio" name="q29" value="d"><span class="incorrect">d) অগ্ন্যাশয়</span></label>
+                </div>
+                <p class="answer">উত্তর: b) পিটুইটারি</p>
+            </div>
+            <div class="question">
+                <p>৩০. কোন হরমোন ডিম্বাশয়ে ফলিকল পরিপক্বতায় সাহায্য করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q30" value="a"><span class="incorrect">a) LH</span></label>
+                    <label><input type="radio" name="q30" value="b"><span class="correct">b) FSH</span></label>
+                    <label><input type="radio" name="q30" value="c"><span class="incorrect">c) প্রোজেস্টেরন</span></label>
+                    <label><input type="radio" name="q30" value="d"><span class="incorrect">d) অ্যাড্রিনালিন</span></label>
+                </div>
+                <p class="answer">উত্তর: b) FSH</p>
+            </div>
+            <div class="question">
+                <p>৩১. কোন হরমোন রক্তে গ্লুকোজের মাত্রা বাড়ায়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q31" value="a"><span class="incorrect">a) ইনসুলিন</span></label>
+                    <label><input type="radio" name="q31" value="b"><span class="correct">b) গ্লুকাগন</span></label>
+                    <label><input type="radio" name="q31" value="c"><span class="incorrect">c) অক্সিটোসিন</span></label>
+                    <label><input type="radio" name="q31" value="d"><span class="incorrect">d) MSH</span></label>
+                </div>
+                <p class="answer">উত্তর: b) গ্লুকাগন</p>
+            </div>
+            <div class="question">
+                <p>৩২. কোন গ্রন্থি থেকে থাইমোসিন নিঃসৃত হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q32" value="a"><span class="correct">a) থাইমাস</span></label>
+                    <label><input type="radio" name="q32" value="b"><span class="incorrect">b) থাইরয়েড</span></label>
+                    <label><input type="radio" name="q32" value="c"><span class="incorrect">c) পিটুইটারি</span></label>
+                    <label><input type="radio" name="q32" value="d"><span class="incorrect">d) অ্যাডরিনাল</span></label>
+                </div>
+                <p class="answer">উত্তর: a) থাইমাস</p>
+            </div>
+            <div class="question">
+                <p>৩৩. কোন হরমোনের অতিরিক্ত নিঃসরণে হাইপারথাইরয়ডিজম হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q33" value="a"><span class="correct">a) থাইরক্সিন</span></label>
+                    <label><input type="radio" name="q33" value="b"><span class="incorrect">b) ক্যালসিটোনিন</span></label>
+                    <label><input type="radio" name="q33" value="c"><span class="incorrect">c) প্যারাথরমোন</span></label>
+                    <label><input type="radio" name="q33" value="d"><span class="incorrect">d) অ্যালডোস্টেরন</span></label>
+                </div>
+                <p class="answer">উত্তর: a) থাইরক্সিন</p>
+            </div>
+            <div class="question">
+                <p>৩৪. কোন হরমোন দুধ নিঃসরণে সাহায্য করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q34" value="a"><span class="correct">a) প্রোল্যাকটিন</span></label>
+                    <label><input type="radio" name="q34" value="b"><span class="incorrect">b) অক্সিটোসিন</span></label>
+                    <label><input type="radio" name="q34" value="c"><span class="incorrect">c) FSH</span></label>
+                    <label><input type="radio" name="q34" value="d"><span class="incorrect">d) ACTH</span></label>
+                </div>
+                <p class="answer">উত্তর: a) প্রোল্যাকটিন</p>
+            </div>
+            <div class="question">
+                <p>৩৫. কোন গ্রন্থি থেকে ইস্ট্রোজেন নিঃসৃত হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q35" value="a"><span class="incorrect">a) শুক্রাশয়</span></label>
+                    <label><input type="radio" name="q35" value="b"><span class="correct">b) ডিম্বাশয়</span></label>
+                    <label><input type="radio" name="q35" value="c"><span class="incorrect">c) অ্যাডরিনাল</span></label>
+                    <label><input type="radio" name="q35" value="d"><span class="incorrect">d) পিটুইটারি</span></label>
+                </div>
+                <p class="answer">উত্তর: b) ডিম্বাশয়</p>
+            </div>
+            <div class="question">
+                <p>৩৬. কোন হরমোনের অভাবে শরীরে ক্লান্তি ও দুর্বলতা দেখা যায়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q36" value="a"><span class="correct">a) কর্টিসল</span></label>
+                    <label><input type="radio" name="q36" value="b"><span class="incorrect">b) ইনসুলিন</span></label>
+                    <label><input type="radio" name="q36" value="c"><span class="incorrect">c) অক্সিটোসিন</span></label>
+                    <label><input type="radio" name="q36" value="d"><span class="incorrect">d) প্রোজেস্টেরন</span></label>
+                </div>
+                <p class="answer">উত্তর: a) কর্টিসল</p>
+            </div>
+            <div class="question">
+                <p>৩৭. কোন হরমোন শরীরের ঘুমের চক্র নিয়ন্ত্রণ করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q37" value="a"><span class="correct">a) মেলাটোনিন</span></label>
+                    <label><input type="radio" name="q37" value="b"><span class="incorrect">b) থাইরক্সিন</span></label>
+                    <label><input type="radio" name="q37" value="c"><span class="incorrect">c) অ্যাড্রিনালিন</span></label>
+                    <label><input type="radio" name="q37" value="d"><span class="incorrect">d) FSH</span></label>
+                </div>
+                <p class="answer">উত্তর: a) মেলাটোনিন</p>
+            </div>
+            <div class="question">
+                <p>৩৮. কোন গ্রন্থি থেকে ACTH নিঃসৃত হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q38" value="a"><span class="incorrect">a) অ্যাডরিনাল</span></label>
+                    <label><input type="radio" name="q38" value="b"><span class="correct">b) পিটুইটারি</span></label>
+                    <label><input type="radio" name="q38" value="c"><span class="incorrect">c) অগ্ন্যাশয়</span></label>
+                    <label><input type="radio" name="q38" value="d"><span class="incorrect">d) থাইরয়েড</span></label>
+                </div>
+                <p class="answer">উত্তর: b) পিটুইটারি</p>
+            </div>
+            <div class="question">
+                <p>৩৯. কোন হরমোনের অতিরিক্ত নিঃসরণে ওজন হ্রাস হয়?</p>
+                <div class="options">
+                    <label><input type="radio" name="q39" value="a"><span class="correct">a) থাইরক্সিন</span></label>
+                    <label><input type="radio" name="q39" value="b"><span class="incorrect">b) ইনসুলিন</span></label>
+                    <label><input type="radio" name="q39" value="c"><span class="incorrect">c) অক্সিটোসিন</span></label>
+                    <label><input type="radio" name="q39" value="d"><span class="incorrect">d) প্রোজেস্টেরন</span></label>
+                </div>
+                <p class="answer">উত্তর: a) থাইরক্সিন</p>
+            </div>
+            <div class="question">
+                <p>৪০. কোন হরমোন পুরুষদের গলার স্বর গম্ভীর করে?</p>
+                <div class="options">
+                    <label><input type="radio" name="q40" value="a"><span class="correct">a) টেস্টোস্টেরন</span></label>
+                    <label><input type="radio" name="q40" value="b"><span class="incorrect">b) ইস্ট্রোজেন</span></label>
+                    <label><input type="radio" name="q40" value="c"><span class="incorrect">c) অ্যাড্রিনালিন</span></label>
+                    <label><input type="radio" name="q40" value="d"><span class="incorrect">d) গ্লুকাগন</span></label>
+                </div>
+                <p class="answer">উত্তর: a) টেস্টোস্টেরন</p>
+            </div>
+        </section>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn">হোম</a>
+            <a href="set1.html" class="nav-btn">সেট ১ (S1)</a>
+            <a href="set2.html" class="nav-btn">সেট ২ (S2)</a>
+            <a href="set3.html" class="nav-btn">সেট ৩ (S3)</a>
+            <a href="set4.html" class="nav-btn">সেট ৪ (S4)</a>
+            <a href="set5.html" class="nav-btn">সেট ৫ (S5)</a>
+            <a href="theory.html" class="nav-btn">থিওরি লেখা</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© ২০২৫ কেশব সরকার। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+</body>
+</html>

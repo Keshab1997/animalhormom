@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>কেশবের বায়োলজি কুইজ - সেট ১</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 50px 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            font-size: 2.5em;
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        .quiz {
+            background: #fff;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin-bottom: 30px;
+        }
+        .question h3 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+        .options button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            background: #f1f1f1;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            text-align: left;
+        }
+        .options button:hover {
+            background: #e0e0e0;
+        }
+        .correct {
+            background: #d4edda !important;
+            color: #155724;
+            font-weight: bold;
+        }
+        .incorrect {
+            background: #f8d7da !important;
+            color: #721c24;
+        }
+        .explanation {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .nav-buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .nav-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 10px;
+            background: linear-gradient(45deg, #007bff, #00c4ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .nav-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #fff;
+            background: #1e3c72;
+            margin-top: 30px;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .container {
+                padding: 10px;
+            }
+            .nav-btn {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>সেট ১: প্রাণী হরমোন</h1>
+        </header>
+        <section class="quiz">
+            <!-- প্রশ্ন ১ -->
+            <div class="question" data-answer="ক">
+                <h3>১. পরস্পর বিরোধী হরমোন জোড়া কোনটি?</h3>
+                <div class="options">
+                    <button>(ক) ইনসুলিন – গ্লুকাগন</button>
+                    <button>(খ) এফ.এস.এইচ – এল.এইচ</button>
+                    <button>(গ) ইস্ট্রোজেন – প্রোজেস্টেরন</button>
+                    <button>(ঘ) ইনসুলিন – সিক্রেটিন</button>
+                </div>
+                <div class="explanation">
+                    <strong>পরীক্ষা:</strong> RRB Group D<br>
+                    <strong>ব্যাখ্যা:</strong> ইনসুলিন রক্তে গ্লুকোজ কমায়, গ্লুকাগন তা বাড়ায়। তাই এরা পরস্পর বিরোধী।
+                </div>
+            </div>
+
+            <!-- প্রশ্ন ২ -->
+            <div class="question" data-answer="খ">
+                <h3>২. রক্তচাপ বৃদ্ধি করে কোনটি?</h3>
+                <div class="options">
+                    <button>(ক) থাইরক্সিন</button>
+                    <button>(খ) অ্যাড্রিনালিন</button>
+                    <button>(গ) ইনসুলিন</button>
+                    <button>(ঘ) গ্লুকাগন</button>
+                </div>
+                <div class="explanation">
+                    <strong>পরীক্ষা:</strong> SSC CGL<br>
+                    <strong>ব্যাখ্যা:</strong> অ্যাড্রিনালিন “ফাইট অর ফ্লাইট” প্রতিক্রিয়া সৃষ্টি করে ও রক্তচাপ বৃদ্ধি করে।
+                </div>
+            </div>
+
+            <!-- প্রশ্ন ৩ -->
+            <div class="question" data-answer="ক">
+                <h3>৩. রক্তে শর্করার মাত্রা বজায় রাখতে বা কমাতে যে হরমোনটি কার্যকরী তা হল—</h3>
+                <div class="options">
+                    <button>(ক) ইনসুলিন</button>
+                    <button>(খ) TSH</button>
+                    <button>(গ) কর্টিকোট্রফিন</button>
+                    <button>(ঘ) অ্যাড্রিনালিন</button>
+                </div>
+                <div class="explanation">
+                    <strong>পরীক্ষা:</strong> SSC GD<br>
+                    <strong>ব্যাখ্যা:</strong> ইনসুলিন কোষে গ্লুকোজ প্রবেশ করিয়ে রক্তে তার পরিমাণ নিয়ন্ত্রণ করে।
+                </div>
+            </div>
+
+            <!-- প্রশ্ন ৪ -->
+            <div class="question" data-answer="ঘ">
+                <h3>৪. হরমোনের রাসায়নিক প্রকৃতি কী?</h3>
+                <div class="options">
+                    <button>(ক) অ্যামাইনো অ্যাসিড জাতীয়</button>
+                    <button>(খ) স্টেরয়েড জাতীয়</button>
+                    <button>(গ) পেপটাইড জাতীয়</button>
+                    <button>(ঘ) সব কটিই</button>
+                </div>
+                <div class="explanation">
+                    <strong>পরীক্ষা:</strong> RRB JE 2018<br>
+                    <strong>ব্যাখ্যা:</strong> হরমোন বিভিন্ন শ্রেণির হতে পারে—স্টেরয়েড, অ্যামাইনো অ্যাসিড ও পেপটাইড জাতীয়।
+                </div>
+            </div>
+
+            <!-- প্রশ্ন ৫ -->
+            <div class="question" data-answer="গ">
+                <h3>৫. গ্যাসট্রিন হরমোন ক্ষরিত হয়—</h3>
+                <div class="options">
+                    <button>(ক) যকৃৎ থেকে</button>
+                    <button>(খ) অন্ত্র থেকে</button>
+                    <button>(গ) পাকস্থলী থেকে</button>
+                    <button>(ঘ) অ্যাডিসনের রোগ</button>
+                </div>
+                <div class="explanation">
+                    <strong>পরীক্ষা:</strong> WBPSC Misc<br>
+                    <strong>ব্যাখ্যা:</strong> গ্যাসট্রিন পাকস্থলী থেকে নিঃসৃত হয় এবং হাইড্রোক্লোরিক অ্যাসিড ক্ষরণকে উদ্দীপিত করে।
+                </div>
+            </div>
+
+            <!-- প্রশ্ন ৬ -->
+            <div class="question" data-answer="ঘ">
+                <h3>৬. স্থানীয় হরমোন কোনটি?</h3>
+                <div class="options">
+                    <button>(ক) থাইরক্সিন</button>
+                    <button>(খ) ইনসুলিন</button>
+                    <button>(গ) অ্যাড্রিনালিন</button>
+                    <button>(ঘ) গ্যাসট্রিন</button>
+                </div>
+                <div class="explanation">
+                    <strong>পরীক্ষা:</strong> RRB NTPC<br>
+                    <strong>ব্যাখ্যা:</strong> গ্যাসট্রিন পাকস্থলীতে কাজ করে, তাই এটি স্থানীয় হরমোন।
+                </div>
+            </div>
+
+            <!-- প্রশ্ন ৭ -->
+            <div class="question" data-answer="গ">
+                <h3>৭. বৃক্ষ থেকে নিঃসৃত প্রধান হরমোন কোনটি?</h3>
+                <div class="options">
+                    <button>(ক) রেনিন</button>
+                    <button>(খ) গ্যাসট্রিন</button>
+                    <button>(গ) সিক্রেটিন</button>
+                    <button>(ঘ) ভিলিকাইনিন</button>
+                </div>
+                <div class="explanation">
+                    <strong>পরীক্ষা:</strong> SSC CHSL<br>
+                    <strong>ব্যাখ্যা:</strong> সিক্রেটিন অন্ত্র থেকে নিঃসৃত একটি হরমোন, যা হজমে সহায়তা করে।
+                </div>
+            </div>
+
+            <!-- প্রশ্ন ৮ -->
+            <div class="question" data-answer="ঘ">
+                <h3>৮. হরমোন নামকরণ করেন—</h3>
+                <div class="options">
+                    <button>(ক) কোগল</button>
+                    <button>(খ) বেলিস</button>
+                    <button>(গ) স্টারলিং</button>
+                    <button>(ঘ) বেলিস ও স্টারলিং</button>
+                </div>
+                <div class="explanation">
+                    <strong>পরীক্ষা:</strong> WB Police Constable<br>
+                    <strong>ব্যাখ্যা:</strong> William Bayliss ও Ernest Starling ১৯০৫ সালে “Hormone” শব্দটি প্রস্তাব করেন।
+                </div>
+            </div>
+
+            <!-- প্রশ্ন ৯ -->
+            <div class="question" data-answer="ক">
+                <h3>৯. রক্তে শর্করার মাত্রা নিয়ন্ত্রণকারী হরমোন হলো—</h3>
+                <div class="options">
+                    <button>(ক) ইনসুলিন</button>
+                    <button>(খ) TSH</button>
+                    <button>(গ) কর্টিকোট্রফিন</button>
+                    <button>(ঘ) অ্যাড্রিনালিন</button>
+                </div>
+                <div class="explanation">
+                    <strong>পরীক্ষা:</strong> SSC MTS<br>
+                    <strong>ব্যাখ্যা:</strong> ইনসুলিন একমাত্র হরমোন যা রক্তে গ্লুকোজ কমায়।
+                </div>
+            </div>
+
+            <!-- প্রশ্ন ১০ -->
+            <div class="question" data-answer="গ">
+                <h3>১০. অ্যানাবলিকটোজেনিক হরমোন বলা হয়—</h3>
+                <div class="options">
+                    <button>(ক) থাইরক্সিন</button>
+                    <button>(খ) অ্যাড্রিনালিন</button>
+                    <button>(গ) ইনসুলিন</button>
+                    <button>(ঘ) গ্লুকাগন</button>
+                </div>
+                <div class="explanation">
+                    <strong>পরীক্ষা:</strong> SSC CHSL<br>
+                    <strong>ব্যাখ্যা:</strong> ইনসুলিন গঠনশীল (অ্যানাবলিক) প্রক্রিয়া উদ্দীপিত করে বলে একে অ্যানাবলিক হরমোন বলা হয়।
+                </div>
+            </div>
+        </section>
+
+        <!-- নেভিগেশন বাটন -->
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn">হোম</a>
+            <a href="set2.html" class="nav-btn">সেট ২ (S2)</a>
+            <a href="set3.html" class="nav-btn">সেট ৩ (S3)</a>
+            <a href="set4.html" class="nav-btn">সেট ৪ (S4)</a>
+            <a href="set5.html" class="nav-btn">সেট ৫ (S5)</a>
+        </div>
+    </div>
+
+    <!-- ফুটার -->
+    <footer>
+        <p>© ২০২৫ কেশব সরকার। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const questions = document.querySelectorAll('.question');
+
+            questions.forEach(question => {
+                const buttons = question.querySelectorAll('.options button');
+                const explanation = question.querySelector('.explanation');
+                const correctAnswer = question.getAttribute('data-answer');
+
+                buttons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const selected = this.textContent.trim().charAt(1); // "(ক)" থেকে "ক" বের করা
+                        if (selected === correctAnswer) {
+                            this.classList.add('correct');
+                        } else {
+                            this.classList.add('incorrect');
+                        }
+                        explanation.style.display = 'block'; // ব্যাখ্যা প্রদর্শন
+                        buttons.forEach(btn => btn.disabled = true); // অন্য বোতাম নিষ্ক্রিয়
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
